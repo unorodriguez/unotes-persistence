@@ -1,0 +1,51 @@
+{
+  "name": "unotes-persistence",
+  "version": "0.0.0-preparation.1",
+  "private": true,
+  "description": "Namespaced browser-local notebook persistence with migration backups, revision merges and conflict copies.",
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "THIRD_PARTY_NOTICES.md",
+    "docs/API.md",
+    "docs/PROVENANCE.md",
+    "docs/BROWSER_ACCEPTANCE.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "npm run build && vitest run",
+    "verify": "npm run typecheck && npm test && npm run check:package && npm run check:licenses",
+    "check:package": "node scripts/check-package.mjs",
+    "check:licenses": "node scripts/check-licenses.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "25.9.5",
+    "fake-indexeddb": "6.2.5",
+    "jsdom": "30.0.1",
+    "typescript": "7.0.2",
+    "vitest": "5.0.3"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unorodriguez/unotes-persistence.git"
+  },
+  "homepage": "https://github.com/unorodriguez/unotes-persistence#readme",
+  "bugs": {
+    "url": "https://github.com/unorodriguez/unotes-persistence/issues"
+  }
+}
